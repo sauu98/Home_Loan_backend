@@ -45,6 +45,11 @@ public class CustomerServiceImpl implements CustomerService{
 		Customer findcc=customerRepo.findById(custid).get();
 		return findcc;
 	}
+	@Override
+	public Customer getCustomerById(int customerid) {  //for profile dashboard
+		Customer cust=customerRepo.findById(customerid).get();
+		return cust;
+	}
 	
 	
 	

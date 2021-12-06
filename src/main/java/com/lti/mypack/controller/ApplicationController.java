@@ -30,19 +30,29 @@ public class ApplicationController {
 		return appService.getApplication();
 	}
 	
+	@GetMapping("/application/{application_id}")   //for loan status
+	public Application getApplbyID(@PathVariable(name="application_id") int applicationid) {
+		return appService.getApplbyID(applicationid);
+	}
+	
 	@PostMapping("/application")
 	public Application addApplication(@RequestBody Application application) {
 		return appService.addApplication(application);
 	}
-//	@PutMapping("/application")
-//	public boolean updateAccount(@RequestBody Application application) {
-//		return appService.updateApplication(application);
-//	}
+	@PutMapping("/application")
+	public boolean updateApp(@RequestBody Application application) {
+		return appService.updateApplication(application);
+	}
+	//For Application approval
+	@PutMapping("/application/{application_id}")
+	public Application updateStatus(@PathVariable(name="application_id") int applicationid,@RequestBody Application application ) {
+		
+		return appService.updateStatus(applicationid,application);
+	}
 	
 	
-//	@DeleteMapping("/application")
-//	public boolean deleteApp(@PathVariable(value="applicationid") int applicationid) {
-//		return appService.deleteApp(applicationid);
-
-//}
+	@DeleteMapping("/application/{applicationid}")
+	public boolean deleteApp(@PathVariable(value="applicationid") int applicationid) {
+		return appService.deleteApp(applicationid);
+     }
 }

@@ -13,5 +13,7 @@ public interface ApplicationService {
 	public Application addApplication(Application application);
 	public boolean deleteApp(int applicationid);
 	public boolean updateApplication(Application application);
+	public Application getApplbyID(int applicationid);
+	public Application updateStatus(int applicationid,Application application); //for loan approval
 
 }

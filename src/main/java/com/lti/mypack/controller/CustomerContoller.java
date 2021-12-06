@@ -29,7 +29,12 @@ public class CustomerContoller {
 		
 	}
 	
-	@GetMapping("/login/{custid}")
+	@GetMapping("/getcustomer/{customerid}")     //for profile dashboard
+	public Customer getCustomerById(@PathVariable(name="customerid")int customerid) {
+		return cService.getCustomerById(customerid);
+	}
+	
+	@GetMapping("/login/{custid}") //for customer login
 	public Customer login(@PathVariable(name="custid") int customerid) {
 		
 		return cService.findcust(customerid);
